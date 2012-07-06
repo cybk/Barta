@@ -1,12 +1,6 @@
-CREATE TABLE Protect ( 
-	ID int NOT NULL,
-	SettingsID int NOT NULL,
-	ContactsID int NOT NULL,
-	EncKey nvarchar(50) NOT NULL,
-	Salt nvarchar(20),
-	Enable bit DEFAULT 1 NOT NULL,
-	Added datetime NOT NULL,
-	Modified datetime NOT NULL
+CREATE TABLE ConferenceContact ( 
+	ConferenceID int NOT NULL,
+	ContactID int NOT NULL
 )
 ;
 
@@ -15,15 +9,6 @@ CREATE TABLE HistoryConference (
 	ConferenceID int NOT NULL,
 	Sender int NOT NULL,
 	Message nvarchar(1000) NOT NULL,
-	Added datetime NOT NULL,
-	Modified datetime NOT NULL
-)
-;
-
-CREATE TABLE Conf_Participant ( 
-	ID int NOT NULL,
-	ConferenceID int NOT NULL,
-	ContactsID int NOT NULL,
 	Added datetime NOT NULL,
 	Modified datetime NOT NULL
 )
@@ -47,11 +32,14 @@ CREATE TABLE History (
 )
 ;
 
-CREATE TABLE Contacts ( 
+CREATE TABLE Contact ( 
 	ID int NOT NULL,
 	JID nvarchar(100) NOT NULL,
 	SettingsID int NOT NULL,
 	Deleted binary() DEFAULT 0 NOT NULL,
+	EncKey nvarchar(50),
+	Salt nvarchar(20),
+	EnableEnc bit DEFAULT 0 NOT NULL,
 	Added datetime NOT NULL,
 	Modified datetime NOT NULL
 )
@@ -72,15 +60,7 @@ CREATE TABLE Settings (
 ;
 
 
-ALTER TABLE Protect ADD CONSTRAINT PK_Protect 
-	PRIMARY KEY CLUSTERED (ID)
-;
-
 ALTER TABLE HistoryConference ADD CONSTRAINT PK_HistoryConference 
-	PRIMARY KEY CLUSTERED (ID)
-;
-
-ALTER TABLE Conf_Participant ADD CONSTRAINT PK_Conf_Participant 
 	PRIMARY KEY CLUSTERED (ID)
 ;
 
@@ -92,7 +72,7 @@ ALTER TABLE History ADD CONSTRAINT PK_History
 	PRIMARY KEY CLUSTERED (ID)
 ;
 
-ALTER TABLE Contacts ADD CONSTRAINT PK_Contacts 
+ALTER TABLE Contact ADD CONSTRAINT PK_Contacts 
 	PRIMARY KEY CLUSTERED (ID)
 ;
 
@@ -105,10 +85,6 @@ ALTER TABLE HistoryConference
 	ADD CONSTRAINT UQ_HistoryConference_ID UNIQUE (ID)
 ;
 
-ALTER TABLE Conf_Participant
-	ADD CONSTRAINT UQ_Conf_Participant_ID UNIQUE (ID)
-;
-
 ALTER TABLE Conference
 	ADD CONSTRAINT UQ_Conference_ID UNIQUE (ID)
 ;
@@ -117,7 +93,7 @@ ALTER TABLE History
 	ADD CONSTRAINT UQ_History_ID UNIQUE (ID)
 ;
 
-ALTER TABLE Contacts
+ALTER TABLE Contact
 	ADD CONSTRAINT UQ_Contacts_ID UNIQUE (ID)
 ;
 
@@ -130,24 +106,16 @@ ALTER TABLE Settings
 ;
 
 
-ALTER TABLE Protect ADD CONSTRAINT FK_Protect_Contacts 
-	FOREIGN KEY (ContactsID) REFERENCES Contacts (ID)
+ALTER TABLE ConferenceContact ADD CONSTRAINT FK_ConferenceParticipant_Conference 
+	FOREIGN KEY (ConferenceID) REFERENCES Conference (ID)
 ;
 
-ALTER TABLE Protect ADD CONSTRAINT FK_Protect_Settings 
-	FOREIGN KEY (SettingsID) REFERENCES Settings (ID)
+ALTER TABLE ConferenceContact ADD CONSTRAINT FK_ConferenceParticipant_Contact 
+	FOREIGN KEY (ContactID) REFERENCES Contact (ID)
 ;
 
 ALTER TABLE HistoryConference ADD CONSTRAINT FK_HistoryConference_Conference 
 	FOREIGN KEY (ConferenceID) REFERENCES Conference (ID)
-;
-
-ALTER TABLE Conf_Participant ADD CONSTRAINT FK_Conf_Participant_Conference 
-	FOREIGN KEY (ConferenceID) REFERENCES Conference (ID)
-;
-
-ALTER TABLE Conf_Participant ADD CONSTRAINT FK_Conf_Participant_Contacts 
-	FOREIGN KEY (ContactsID) REFERENCES Contacts (ID)
 ;
 
 ALTER TABLE Conference ADD CONSTRAINT FK_Conference_Settings 
@@ -158,6 +126,6 @@ ALTER TABLE History ADD CONSTRAINT FK_History_Settings
 	FOREIGN KEY (SettingsID) REFERENCES Settings (ID)
 ;
 
-ALTER TABLE Contacts ADD CONSTRAINT FK_Contacts_Settings 
+ALTER TABLE Contact ADD CONSTRAINT FK_Contacts_Settings 
 	FOREIGN KEY (SettingsID) REFERENCES Settings (ID)
 ;
