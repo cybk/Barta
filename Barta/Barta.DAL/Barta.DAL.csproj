@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Conference.cs" />
+    <Compile Include="Entities\Contact.cs" />
+    <Compile Include="Entities\History.cs" />
+    <Compile Include="Entities\HistoryConference.cs" />
+    <Compile Include="Entities\ModelBase.cs" />
+    <Compile Include="Entities\Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
