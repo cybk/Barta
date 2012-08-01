@@ -78,6 +78,14 @@ namespace Barta.DAL.Entities
         public virtual bool UseSsl { get; set; }
 
         /// <summary>
+        /// Gets or sets the download path.
+        /// </summary>
+        /// <value>
+        /// The download path.
+        /// </value>
+        public virtual string DownloadPath { get; set; }
+
+        /// <summary>
         /// Gets or sets the contacts.
         /// </summary>
         /// <value>

@@ -1,4 +1,14 @@
-﻿namespace Barta.DAL.Entities
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ModelBase.cs" company="Cybk">
+//   2012
+// </copyright>
+// <summary>
+//   DEfines the common properties to
+//   be mapped on the databse
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace Barta.DAL.Entities
 {
     using System;
 
@@ -14,7 +24,7 @@
         /// <value>
         /// The ID.
         /// </value>
-        public virtual int ID { get; set; }
+        public virtual int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the added date.

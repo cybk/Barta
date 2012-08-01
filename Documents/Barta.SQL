@@ -36,7 +36,7 @@ CREATE TABLE Contact (
 	ID int NOT NULL,
 	JID nvarchar(100) NOT NULL,
 	SettingsID int NOT NULL,
-	Deleted binary() DEFAULT 0 NOT NULL,
+	Deleted bit DEFAULT 0 NOT NULL,
 	EncKey nvarchar(50),
 	Salt nvarchar(20),
 	EnableEnc bit DEFAULT 0 NOT NULL,
@@ -55,7 +55,8 @@ CREATE TABLE Settings (
 	port int DEFAULT 5222 NOT NULL,
 	UseSsl bit DEFAULT 0 NOT NULL,
 	Added datetime NOT NULL,
-	Modified datetime NOT NULL
+	Modified datetime NOT NULL,
+	DownloadPath nvarchar(200)
 )
 ;
 

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Contacts.cs" company="Cybk">
+// <copyright file="Contact.cs" company="Cybk">
 //   2012
 // </copyright>
 // <summary>

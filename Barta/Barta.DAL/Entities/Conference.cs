@@ -20,7 +20,6 @@ namespace Barta.DAL.Entities
     /// </summary>
     public class Conference : ModelBase
     {
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Conference" /> class.
         /// </summary>
@@ -58,7 +57,7 @@ namespace Barta.DAL.Entities
         /// Histories the conference.
         /// </summary>
         /// <param name="history">The history.</param>
-        public virtual void HistoryConference (HistoryConference history)
+        public virtual void HistoryConference(HistoryConference history)
         {
             history.Conference = this;
             this.HistoryConferences.Add(history);
