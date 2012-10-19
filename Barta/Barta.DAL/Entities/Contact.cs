@@ -25,7 +25,7 @@ namespace Barta.DAL.Entities
         /// </summary>
         public Contact()
         {
-            Conferences = new List<Conference>();
+            this.Conferences = new List<Conference>();
         }
 
         /// <summary>

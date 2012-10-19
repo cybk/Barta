@@ -13,8 +13,8 @@ namespace Barta.DAL.Entities
     using System;
 
     /// <summary>
-    /// DEfines the common properties to 
-    /// be mapped on the databse
+    /// Defines the common properties to 
+    /// be mapped on the database
     /// </summary>
     public abstract class ModelBase
     {

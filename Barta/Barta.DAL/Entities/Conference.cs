@@ -25,8 +25,8 @@ namespace Barta.DAL.Entities
         /// </summary>
         public Conference()
         {
-            Participants = new List<Contact>();
-            HistoryConferences = new List<HistoryConference>();
+            this.Participants = new List<Contact>();
+            this.HistoryConferences = new List<HistoryConference>();
         }
 
         /// <summary>

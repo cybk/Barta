@@ -27,7 +27,7 @@ namespace Barta.DAL
 
     /// <summary>
     ///  Defines the start configuration and 
-    /// the mapping used for the nhibernate logic
+    /// the mapping used for the hibernate logic
     /// </summary>
     public class SessionFactory
     {

@@ -23,9 +23,9 @@ namespace Barta.DAL.Entities
         /// </summary>
         public Settings()
         {
-            Contacts = new List<Contact>();
-            Histories = new List<History>();
-            Conferences = new List<Conference>();
+            this.Contacts = new List<Contact>();
+            this.Histories = new List<History>();
+            this.Conferences = new List<Conference>();
         }
 
         /// <summary>

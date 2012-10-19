@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IOperations.cs" />
     <Compile Include="Conventions\AutoMapConfig.cs" />
     <Compile Include="Conventions\ForeignKeyConventions.cs" />
     <Compile Include="Entities\Conference.cs" />
@@ -74,7 +75,9 @@
     <Compile Include="Listeners\InsertListener.cs" />
     <Compile Include="Listeners\ListenerExtensions.cs" />
     <Compile Include="Listeners\UpdateListener.cs" />
+    <Compile Include="Operations\OperationsBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs" />
     <Compile Include="SessionFactory.cs" />
   </ItemGroup>
   <ItemGroup>
